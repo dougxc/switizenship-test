@@ -1,0 +1,202 @@
+{
+  "questions": [
+    {
+      "question": "Warum ist es in der Schweiz illegal, nur ein einzelnes Meerschweinchen zu halten?",
+      "options": [
+        "Weil sie sonst die Kabel im Haus alleine anfressen",
+        "Weil sie soziale Tiere sind und Einzelhaltung als Tierquälerei gilt",
+        "Weil die Steuer für ein Tier teurer ist als für zwei"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Was darf man in der Schweiz an einem Sonntag gesetzlich normalerweise NICHT tun?",
+      "options": [
+        "Den Rasen mähen oder Glas entsorgen",
+        "Schokolade essen",
+        "Wanderschuhe tragen"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Was passiert laut Tradition, wenn man sein Brot im Fondue-Topf verliert?",
+      "options": [
+        "Man muss den Abwasch machen",
+        "Man muss eine Runde Getränke bezahlen (oder jemanden küssen)",
+        "Man darf für den Rest des Abends keinen Käse mehr essen"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Was ist das Besondere an den Schweizer Atombunkern?",
+      "options": [
+        "Sie sind alle mit Gratis-WLAN ausgestattet",
+        "Einige sind als charmante Schweizer Chalets getarnt",
+        "Sie werden im Sommer als Käselager genutzt"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Warum wurde eine Frau in der Schweiz die Einbürgerung verweigert, obwohl sie ihr ganzes Leben dort gelebt hatte?",
+      "options": [
+        "Weil sie keinen Käse mochte",
+        "Weil sie zugab, dass sie nicht gerne wandert",
+        "Weil sie die Nationalhymne nicht jodeln konnte"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Was bekommt der Gewinner des nationalen Schwingfestes (Schwingerkönig) als traditionellen Hauptpreis?",
+      "options": [
+        "Einen goldenen Käselaib",
+        "Einen lebendigen Muni (Stier)",
+        "Ein lebenslanges Abo für die SBB"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "In vielen älteren Schweizer Miethäusern gibt es eine inoffizielle Regel für die Zeit nach 22:00 Uhr. Welche?",
+      "options": [
+        "Man darf nicht mehr laut lachen",
+        "Man sollte die Toilette nicht mehr spülen oder duschen",
+        "Man muss alle Fenster schliessen"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Welches Tier ist in der Schweiz gesetzlich geschützt, sodass man kein 'Trophäenfoto' damit machen darf, bevor man es tötet?",
+      "options": [
+        "Ein Murmeltier",
+        "Ein Fisch (in Zürich)",
+        "Ein Steinbock"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Woher kommt das berühmte Käsegericht Raclette ursprünglich?",
+      "options": [
+        "Aus dem Kanton Wallis",
+        "Aus dem Kanton Appenzell",
+        "Aus Frankreich"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Was ist 'Hornussen'?",
+      "options": [
+        "Ein traditionelles Rezept für Hornissen-Honig",
+        "Ein Schweizer Mannschaftssport (Mischung aus Golf und Baseball)",
+        "Das offizielle Blasen des Alphorns im Winter"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Wie viel Prozent der Schweizer Bevölkerung findet in Atombunkern Platz?",
+      "options": [
+        "Etwa 25%",
+        "Genau 100%",
+        "Nur die Regierung und die Bankangestellten"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Warum ist das Waschen des Autos am Sonntag in der Schweiz oft problematisch?",
+      "options": [
+        "Wegen der Lärmschutzverordnung (Sonntagsruhe)",
+        "Weil Wasser am Sonntag teurer ist",
+        "Weil es als Unglücksbringer gilt"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Welche Supermärkte gelten als 'typisch schweizerisch' (im Gegensatz zu Aldi oder Lidl)?",
+      "options": [
+        "Walmart und Target",
+        "Migros und Coop",
+        "Tesco und Carrefour"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "In welchem Kanton wachsen Palmen ganz natürlich, obwohl man in der Nähe Gletscher sehen kann?",
+      "options": [
+        "Kanton Bern",
+        "Kanton Tessin",
+        "Kanton Graubünden"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Was darf man am Sonntag in der Schweiz NICHT im Freien aufhängen?",
+      "options": [
+        "Die Schweizer Flagge",
+        "Seine Wäsche zum Trocknen",
+        "Ein Plakat für eine Party"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Wie nennt man den fiktiven Bären, mit dem Schweizer gerne Touristen erschrecken?",
+      "options": [
+        "Der Wolpertinger",
+        "Der Drop Bear (ursprünglich aus Australien, aber das Prinzip zählt)",
+        "Eigentlich gibt es in der Schweiz den 'Dahu', ein Tier mit unterschiedlich langen Beinen"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Warum dürfen Männer in manchen Mietverträgen nach 22:00 Uhr nicht mehr im Stehen urinieren?",
+      "options": [
+        "Wegen der Gefahr von Flecken",
+        "Wegen der Lärmbelästigung durch das Plätschern",
+        "Es ist ein alter religiöser Brauch"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Was ist die 'Bise'?",
+      "options": [
+        "Ein kleiner Kuss zur Begrüssung",
+        "Ein kalter, trockener Nordostwind",
+        "Ein spezielles Gebäck aus Luzern"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Was passiert, wenn man in der Schweiz am Sonntag sein Altglas zum Container bringt?",
+      "options": [
+        "Man bekommt ein Dankeschön von der Gemeinde",
+        "Man riskiert eine Busse wegen Lärmbelästigung",
+        "Der Container ist am Sonntag automatisch verriegelt"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Wer ist der 'König' der Schweiz?",
+      "options": [
+        "Roger Federer",
+        "Es gibt keinen (ausser den Schwingerkönig)",
+        "Der amtierende Bundespräsident"
+      ],
+      "answer": 1
+    }
+  ],
+  "route": [
+    {"lat": 46.7967, "lng": 10.2989, "name": "Scuol"},
+    {"lat": 46.7167, "lng": 10.3333, "name": "S-charl"},
+    {"lat": 46.6667, "lng": 10.35, "name": "Pass da Costainas"},
+    {"lat": 46.6167, "lng": 10.3333, "name": "Tschierv"},
+    {"lat": 46.5833, "lng": 10.25, "name": "Val Mora"},
+    {"lat": 46.5833, "lng": 10.15, "name": "Lago di Livigno"},
+    {"lat": 46.5389, "lng": 10.1358, "name": "Livigno"},
+    {"lat": 46.55, "lng": 10.0333, "name": "Chaschauna Pass"},
+    {"lat": 46.6167, "lng": 9.9833, "name": "S-chanf"},
+    {"lat": 46.7, "lng": 10.0833, "name": "Zernez"},
+    {"lat": 46.75, "lng": 10.1, "name": "Susch"},
+    {"lat": 46.7667, "lng": 10.1167, "name": "Lavin"},
+    {"lat": 46.7767, "lng": 10.15, "name": "Guarda"},
+    {"lat": 46.775, "lng": 10.2, "name": "Ardez"},
+    {"lat": 46.778, "lng": 10.26, "name": "Tarasp"},
+    {"lat": 46.7967, "lng": 10.2989, "name": "Scuol (Ziel)"}
+  ]
+}

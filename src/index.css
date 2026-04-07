@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-swiss-red: #FF0000;
+  --color-swiss-white: #FFFFFF;
+}
+
+body {
+  @apply bg-gray-100 font-sans;
+}
+
+.swiss-card {
+  @apply bg-white rounded-lg shadow-xl overflow-hidden border-t-8 border-swiss-red;
+}
+
+.btn-swiss {
+  @apply bg-swiss-red text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition-colors duration-200;
+}
+
+.btn-option {
+  @apply block w-full text-left p-4 border-2 border-gray-200 rounded-lg hover:border-swiss-red hover:bg-red-50 transition-all duration-200;
+}
+
+.btn-option.correct {
+  @apply border-green-500 bg-green-50;
+}
+
+.btn-option.incorrect {
+  @apply border-swiss-red bg-red-50;
+}

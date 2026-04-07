@@ -1,0 +1,54 @@
+{
+  "questions": [
+    {
+      "question": "In 1932, the Australian military was deployed to deal with a specific animal population in what became known as the 'Great War.' Which animal won this conflict?",
+      "options": ["The Emus", "The Kangaroos", "The Australian Army"],
+      "answer": 0
+    },
+    {
+      "question": "What is unique about the waste produced by a Wombat?",
+      "options": ["It glows in the dark", "It is cube-shaped", "It smells like eucalyptus"],
+      "answer": 1
+    },
+    {
+      "question": "Why are the Kangaroo and the Emu featured on the Australian Coat of Arms?",
+      "options": ["They are the only animals that cannot walk backward", "They were the most delicious animals found by settlers", "They are the only animals that survived the Great Ice Age"],
+      "answer": 0
+    },
+    {
+      "question": "In 1967, Prime Minister Harold Holt disappeared while swimming. How did Australia later commemorate him?",
+      "options": ["They named a mountain after him", "They named a swimming center after him", "They banned swimming at that specific beach"],
+      "answer": 1
+    },
+    {
+      "question": "Former PM Bob Hawke once held a world record for which of the following activities?",
+      "options": ["Shearing a sheep in under a minute", "Sculling 2.5 pints of beer in 11 seconds", "Winning a marathon in work boots"],
+      "answer": 1
+    },
+    {
+      "question": "If you visited one new Australian beach every day, how long would it take to see them all?",
+      "options": ["About 5 years", "Over 27 years", "Exactly 10 years"],
+      "answer": 1
+    },
+    {
+      "question": "What is the mythical 'Drop Bear' used for in Australian culture?",
+      "options": ["To terrify and prank tourists", "To teach children about forest safety", "To celebrate the harvest season"],
+      "answer": 0
+    },
+    {
+      "question": "What is 'Fairy Bread,' a staple of Australian children's parties?",
+      "options": ["Bread shaped like wings", "White bread with butter and sprinkles", "Sweet dough filled with jam"],
+      "answer": 1
+    },
+    {
+      "question": "Australia has the world's largest population of wild camels. Which country do they actually export them to?",
+      "options": ["Egypt", "Saudi Arabia", "The United States"],
+      "answer": 1
+    },
+    {
+      "question": "What is 'Goon' in Australian slang?",
+      "options": ["A silly person", "Boxed wine", "A type of work boot"],
+      "answer": 1
+    }
+  ]
+}
