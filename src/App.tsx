@@ -28,6 +28,43 @@ const doctorTIcon = new L.DivIcon({
   iconAnchor: [60, 60],
 });
 
+// Waypoint Icons
+const townIcon = new L.DivIcon({
+  html: `<div class="w-8 h-8 rounded-full border-2 border-red-600 bg-white flex items-center justify-center shadow-md">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+         </div>`,
+  className: '',
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+});
+
+const passIcon = new L.DivIcon({
+  html: `<div class="w-8 h-8 rounded-full border-2 border-blue-600 bg-white flex items-center justify-center shadow-md">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+         </div>`,
+  className: '',
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+});
+
+const natureIcon = new L.DivIcon({
+  html: `<div class="w-8 h-8 rounded-full border-2 border-green-600 bg-white flex items-center justify-center shadow-md">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7l-2-2-2 2v7"/><path d="M7.03 9.73a4 4 0 0 1 9.94 0"/><path d="M12 13V5"/><path d="M12 13l4 4"/><path d="M12 13l-4 4"/></svg>
+         </div>`,
+  className: '',
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+});
+
+const waterIcon = new L.DivIcon({
+  html: `<div class="w-8 h-8 rounded-full border-2 border-cyan-600 bg-white flex items-center justify-center shadow-md">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+         </div>`,
+  className: '',
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+});
+
 // Animated Marker Component that also scrolls the map
 function AnimatedMarker({ targetCoords, icon, children, duration = 800 }: { targetCoords: [number, number], icon: any, children?: React.ReactNode, duration?: number }) {
   const [displayCoords, setDisplayCoords] = useState<[number, number]>(targetCoords);
@@ -432,6 +469,30 @@ const App: React.FC = () => {
             opacity={0.6}
             dashArray="10, 10"
           />
+
+          {/* Waypoint Markers */}
+          {routePoints.map((point, idx) => {
+            const name = point.name.toLowerCase();
+            let icon = townIcon;
+            if (name.includes('pass') || name.includes('costainas')) icon = passIcon;
+            else if (name.includes('lago')) icon = waterIcon;
+            else if (name.includes('val')) icon = natureIcon;
+
+            return (
+              <Marker 
+                key={idx} 
+                position={[point.lat, point.lng]} 
+                icon={icon}
+              >
+                <Popup>
+                  <div className="text-center font-bold">
+                    📍 {point.name}
+                  </div>
+                </Popup>
+              </Marker>
+            );
+          })}
+
           <AnimatedMarker 
             targetCoords={currentCoords} 
             icon={doctorTIcon} 
