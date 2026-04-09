@@ -66,9 +66,10 @@ const waterIcon = new L.DivIcon({
 });
 
 // Animated Marker Component that also scrolls the map
-function AnimatedMarker({ targetCoords, icon, children, duration = 800 }: { targetCoords: [number, number], icon: any, children?: React.ReactNode, duration?: number }) {
+function AnimatedMarker({ targetCoords, icon, children, duration = 4000 }: { targetCoords: [number, number], icon: any, children?: React.ReactNode, duration?: number }) {
   const [displayCoords, setDisplayCoords] = useState<[number, number]>(targetCoords);
   const displayCoordsRef = useRef<[number, number]>(targetCoords);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const map = useMap();
 
   useEffect(() => {
@@ -77,6 +78,13 @@ function AnimatedMarker({ targetCoords, icon, children, duration = 800 }: { targ
 
     let animationFrameId: number;
     const startTime = performance.now();
+
+    // Start biking sound
+    if (!audioRef.current) {
+      audioRef.current = new Audio('sounds/biking.mp3');
+      audioRef.current.loop = true;
+    }
+    audioRef.current.play().catch(e => console.error("Biking sound failed", e));
 
     const step = (currentTime: number) => {
       const elapsed = currentTime - startTime;
@@ -97,11 +105,22 @@ function AnimatedMarker({ targetCoords, icon, children, duration = 800 }: { targ
 
       if (progress < 1) {
         animationFrameId = requestAnimationFrame(step);
+      } else {
+        // Stop sound when done
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current.currentTime = 0;
+        }
       }
     };
 
     animationFrameId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
   }, [targetCoords, map, duration]);
 
   return (
@@ -167,7 +186,7 @@ const App: React.FC = () => {
     }
 
     const direction = targetRouteIdx > routeIdx ? 1 : -1;
-    const interval = gameState === 'moving_back' ? 400 : 900;
+    const interval = gameState === 'moving_back' ? 400 : 4200;
 
     const timer = setTimeout(() => {
       setRouteIdx(prev => prev + direction);
@@ -496,7 +515,7 @@ const App: React.FC = () => {
           <AnimatedMarker 
             targetCoords={currentCoords} 
             icon={doctorTIcon} 
-            duration={gameState === 'moving_back' ? 350 : 800}
+            duration={gameState === 'moving_back' ? 350 : 4000}
           >
             <Popup>
               <div className="text-center font-bold">
