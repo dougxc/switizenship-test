@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { Bike, Flag, Trophy, RefreshCw, ChevronRight, Globe } from 'lucide-react';
 import data from './data.json';
 import auData from './au_data.json';
+import fullPathData from './full_path.json';
 
 // Fix Leaflet icon issue
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -66,65 +67,15 @@ const waterIcon = new L.DivIcon({
 });
 
 // Animated Marker Component that also scrolls the map
-function AnimatedMarker({ targetCoords, icon, children, duration = 4000 }: { targetCoords: [number, number], icon: any, children?: React.ReactNode, duration?: number }) {
-  const [displayCoords, setDisplayCoords] = useState<[number, number]>(targetCoords);
-  const displayCoordsRef = useRef<[number, number]>(targetCoords);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+function AnimatedMarker({ position, icon, children }: { position: [number, number], icon: any, children?: React.ReactNode }) {
   const map = useMap();
-
+  
   useEffect(() => {
-    const startCoords = displayCoordsRef.current;
-    if (startCoords[0] === targetCoords[0] && startCoords[1] === targetCoords[1]) return;
-
-    let animationFrameId: number;
-    const startTime = performance.now();
-
-    // Start biking sound
-    if (!audioRef.current) {
-      audioRef.current = new Audio('sounds/biking.mp3');
-      audioRef.current.loop = true;
-    }
-    audioRef.current.play().catch(e => console.error("Biking sound failed", e));
-
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      // Smooth easing (easeInOutQuad)
-      const easeProgress = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
-
-      const nextLat = startCoords[0] + (targetCoords[0] - startCoords[0]) * easeProgress;
-      const nextLng = startCoords[1] + (targetCoords[1] - startCoords[1]) * easeProgress;
-      
-      const newCoords: [number, number] = [nextLat, nextLng];
-      setDisplayCoords(newCoords);
-      displayCoordsRef.current = newCoords;
-      
-      // Update map view to follow the marker
-      map.setView(newCoords, map.getZoom(), { animate: false });
-
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(step);
-      } else {
-        // Stop sound when done
-        if (audioRef.current) {
-          audioRef.current.pause();
-          audioRef.current.currentTime = 0;
-        }
-      }
-    };
-
-    animationFrameId = requestAnimationFrame(step);
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
-  }, [targetCoords, map, duration]);
+    map.setView(position, map.getZoom(), { animate: false });
+  }, [position, map]);
 
   return (
-    <Marker position={displayCoords} icon={icon}>
+    <Marker position={position} icon={icon}>
       {children}
     </Marker>
   );
@@ -165,44 +116,86 @@ const App: React.FC = () => {
   const [swissIdx, setSwissIdx] = useState(0);
   const [auIdx, setAuIdx] = useState(0);
   const [attempts, setAttempts] = useState(0);
-  const [routeIdx, setRouteIdx] = useState(0);
-  const [targetRouteIdx, setTargetRouteIdx] = useState(0);
+  const [currentStageIdx, setCurrentStageIdx] = useState(0);
+  const [targetStageIdx, setTargetStageIdx] = useState(0);
+  const [currentPathIdx, setCurrentPathIdx] = useState(0);
   const [consecutiveWrongs, setConsecutiveWrongs] = useState(0);
   const [showFeedback, setShowFeedback] = useState<'correct' | 'incorrect' | 'back' | 'bonus' | null>(null);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
-  const routePoints = data.route;
+  const routePoints = data.route.map((p, i) => ({
+    ...p,
+    lat: (fullPathData.fullPath as [number, number][])[fullPathData.stageIndices[i]][0],
+    lng: (fullPathData.fullPath as [number, number][])[fullPathData.stageIndices[i]][1],
+  }));
 
   const isMovingRef = useRef(false);
+  const bikingAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Effect to move routeIdx towards targetRouteIdx step by step
+  // Biking sound effect
   useEffect(() => {
-    if (routeIdx === targetRouteIdx) {
+    const targetPathIdx = fullPathData.stageIndices[targetStageIdx];
+    const isMoving = currentPathIdx !== targetPathIdx;
+
+    if (isMoving && !bikingAudioRef.current) {
+      bikingAudioRef.current = new Audio('sounds/biking.mp3');
+      bikingAudioRef.current.loop = true;
+    }
+
+    if (isMoving) {
+      bikingAudioRef.current?.play().catch(e => console.error("Biking sound failed", e));
+    } else {
+      if (bikingAudioRef.current) {
+        bikingAudioRef.current.pause();
+        bikingAudioRef.current.currentTime = 0;
+      }
+    }
+
+    return () => {
+      if (!isMoving && bikingAudioRef.current) {
+        bikingAudioRef.current.pause();
+      }
+    };
+  }, [currentPathIdx, targetStageIdx]);
+
+  // Effect to move currentPathIdx towards stageIndices[targetStageIdx]
+  useEffect(() => {
+    const targetPathIdx = fullPathData.stageIndices[targetStageIdx];
+    if (currentPathIdx === targetPathIdx) {
       isMovingRef.current = false;
-      if (routeIdx === routePoints.length - 1 && gameState === 'playing') {
+      setCurrentStageIdx(targetStageIdx);
+      
+      if (targetStageIdx === routePoints.length - 1 && gameState === 'playing') {
         setGameState('special');
       }
-      if (gameState === 'moving_back' && routeIdx === 0) {
+      if (gameState === 'moving_back' && targetStageIdx === 0) {
         setGameState('finished');
       }
       return;
     }
 
-    const direction = targetRouteIdx > routeIdx ? 1 : -1;
+    const direction = targetPathIdx > currentPathIdx ? 1 : -1;
     
-    // Start first step quickly, subsequent steps wait for animation
-    let interval = gameState === 'moving_back' ? 400 : 4200;
-    if (!isMovingRef.current) {
-      interval = gameState === 'moving_back' ? 0 : 500;
-      isMovingRef.current = true;
-    }
+    // Slow down for the "struggling" effect
+    // We want to cover the distance between stages in about 4 seconds
+    // Calculate interval based on number of points in this leg
+    const currentTargetStageIdx = direction > 0 
+      ? routePoints.findIndex((_, i) => fullPathData.stageIndices[i] > currentPathIdx)
+      : routePoints.findLastIndex((_, i) => fullPathData.stageIndices[i] < currentPathIdx);
+    
+    const prevStagePathIdx = fullPathData.stageIndices[Math.max(0, currentTargetStageIdx - 1)];
+    const nextStagePathIdx = fullPathData.stageIndices[currentTargetStageIdx];
+    const pointsInLeg = Math.abs(nextStagePathIdx - prevStagePathIdx);
+    
+    const baseInterval = gameState === 'moving_back' ? 10 : 4000 / (pointsInLeg || 1);
+    const interval = Math.max(baseInterval, 5); // Don't go faster than 5ms per point
 
     const timer = setTimeout(() => {
-      setRouteIdx(prev => prev + direction);
+      setCurrentPathIdx(prev => prev + direction);
     }, interval);
     
     return () => clearTimeout(timer);
-  }, [routeIdx, targetRouteIdx, gameState, routePoints.length]);
+  }, [currentPathIdx, targetStageIdx, gameState, routePoints, fullPathData.stageIndices]);
 
   // Interleaving logic: 3 Swiss, 1 Australian
   const isAuQuestion = (attempts > 0 && (attempts + 1) % 4 === 0);
@@ -210,11 +203,11 @@ const App: React.FC = () => {
     ? shuffledAu[auIdx % shuffledAu.length] 
     : shuffledSwiss[swissIdx % shuffledSwiss.length];
 
-  const currentCoords: [number, number] = [routePoints[routeIdx].lat, routePoints[routeIdx].lng];
-  const polylinePoints: [number, number][] = routePoints.map(p => [p.lat, p.lng]);
+  const currentCoords: [number, number] = (fullPathData.fullPath as [number, number][])[currentPathIdx];
+  const polylinePoints = fullPathData.fullPath as [number, number][];
 
   const handleAnswer = (optionIdx: number) => {
-    if (showFeedback || gameState !== 'playing') return;
+    if (showFeedback || gameState !== 'playing' || isMovingRef.current) return;
     
     setSelectedOption(optionIdx);
     const isCorrect = optionIdx === currentQuestion.answer;
@@ -265,9 +258,11 @@ const App: React.FC = () => {
     // Trigger movement immediately with the sound
     if (isCorrect) {
       const moveAmount = isAuQuestion ? 2 : 1;
-      setTargetRouteIdx(prev => Math.min(prev + moveAmount, routePoints.length - 1));
+      isMovingRef.current = true;
+      setTargetStageIdx(prev => Math.min(prev + moveAmount, routePoints.length - 1));
     } else if (nextFeedback === 'back') {
-      setTargetRouteIdx(prev => Math.max(prev - 1, 0));
+      isMovingRef.current = true;
+      setTargetStageIdx(prev => Math.max(prev - 1, 0));
     }
 
     setTimeout(() => {
@@ -287,7 +282,8 @@ const App: React.FC = () => {
     setTimeout(() => {
       setSelectedOption(null);
       setGameState('moving_back');
-      setTargetRouteIdx(0);
+      isMovingRef.current = true;
+      setTargetStageIdx(0);
     }, 1000);
   };
 
@@ -297,8 +293,9 @@ const App: React.FC = () => {
     setSwissIdx(0);
     setAuIdx(0);
     setAttempts(0);
-    setRouteIdx(0);
-    setTargetRouteIdx(0);
+    setCurrentStageIdx(0);
+    setTargetStageIdx(0);
+    setCurrentPathIdx(0);
     setConsecutiveWrongs(0);
     setGameState('playing');
   };
@@ -447,14 +444,14 @@ const App: React.FC = () => {
           <div className="mt-6 flex-1 min-h-0">
             <div className="swiss-card overflow-hidden h-full border-t-0 border-b-8 border-swiss-red shadow-lg group">
               <img 
-                src={locationImages[routePoints[routeIdx].name] || locationImages["Scuol"]} 
-                alt={routePoints[routeIdx].name}
+                src={locationImages[routePoints[currentStageIdx].name] || locationImages["Scuol"]} 
+                alt={routePoints[currentStageIdx].name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                 <p className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                   <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
-                  Aktueller Standort: {routePoints[routeIdx].name}
+                  Aktueller Standort: {routePoints[currentStageIdx].name}
                 </p>
               </div>
             </div>
@@ -465,7 +462,7 @@ const App: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs text-gray-400 uppercase font-bold tracking-widest">Fortschritt</p>
-              <p className="text-sm font-black text-gray-900 uppercase">{routePoints[routeIdx].name}</p>
+              <p className="text-sm font-black text-gray-900 uppercase">{routePoints[currentStageIdx].name}</p>
             </div>
             <div className="text-right">
               <p className="text-xs text-gray-400 uppercase font-bold tracking-widest">Fragen</p>
@@ -475,7 +472,7 @@ const App: React.FC = () => {
           <div className="w-full bg-gray-200 h-2 rounded-full mt-2 overflow-hidden">
             <div 
               className="bg-red-600 h-full transition-all duration-1000 ease-out"
-              style={{ width: `${(routeIdx / (routePoints.length - 1)) * 100}%` }}
+              style={{ width: `${(currentPathIdx / (polylinePoints.length - 1)) * 100}%` }}
             />
           </div>
         </div>
@@ -525,14 +522,13 @@ const App: React.FC = () => {
           })}
 
           <AnimatedMarker 
-            targetCoords={currentCoords} 
+            position={currentCoords} 
             icon={doctorTIcon} 
-            duration={gameState === 'moving_back' ? 350 : 4000}
           >
             <Popup>
               <div className="text-center font-bold">
                 Doctor T auf der Tour!<br />
-                📍 {routePoints[routeIdx].name}
+                📍 {routePoints[currentStageIdx].name}
               </div>
             </Popup>
           </AnimatedMarker>
