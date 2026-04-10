@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Bike, Flag, Trophy, RefreshCw, ChevronRight, Globe } from 'lucide-react';
+import { Bike, Flag, Trophy, RefreshCw, ChevronRight, Globe, Volume2, VolumeX } from 'lucide-react';
 import data from './data.json';
 import auData from './au_data.json';
 import fullPathData from './full_path.json';
@@ -122,6 +122,7 @@ const App: React.FC = () => {
   const [consecutiveWrongs, setConsecutiveWrongs] = useState(0);
   const [showFeedback, setShowFeedback] = useState<'correct' | 'incorrect' | 'back' | 'bonus' | null>(null);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [isMuted, setIsMuted] = useState(false);
 
   const routePoints = data.route.map((p, i) => ({
     ...p,
@@ -142,7 +143,7 @@ const App: React.FC = () => {
       bikingAudioRef.current.loop = true;
     }
 
-    if (isMoving) {
+    if (isMoving && !isMuted) {
       bikingAudioRef.current?.play().catch(e => console.error("Biking sound failed", e));
     } else {
       if (bikingAudioRef.current) {
@@ -156,7 +157,7 @@ const App: React.FC = () => {
         bikingAudioRef.current.pause();
       }
     };
-  }, [currentPathIdx, targetStageIdx]);
+  }, [currentPathIdx, targetStageIdx, isMuted]);
 
   // Effect to move currentPathIdx towards stageIndices[targetStageIdx]
   useEffect(() => {
@@ -214,24 +215,26 @@ const App: React.FC = () => {
     setAttempts(a => a + 1);
     
     // Sound Effects Logic
-    if (!isAuQuestion) {
-      if (isCorrect) {
-        const audio = new Audio('sounds/oh-yeah.mp3');
-        audio.play().catch(e => console.error("Audio play failed", e));
+    if (!isMuted) {
+      if (!isAuQuestion) {
+        if (isCorrect) {
+          const audio = new Audio('sounds/oh-yeah.mp3');
+          audio.play().catch(e => console.error("Audio play failed", e));
+        } else {
+          const audio = new Audio('sounds/postbus.mp3');
+          audio.play().catch(e => console.error("Audio play failed", e));
+        }
       } else {
-        const audio = new Audio('sounds/postbus.mp3');
-        audio.play().catch(e => console.error("Audio play failed", e));
-      }
-    } else {
-      if (isCorrect) {
-        const audio = new Audio('sounds/good-boy.mp3');
-        audio.play().catch(e => console.error("Audio play failed", e));
-      } else {
-        const audio = new Audio('sounds/sorry-mate.mp3');
-        audio.play().catch(e => console.error("Audio play failed", e));
-        // Play a second instance to "double" the volume
-        const audio2 = new Audio('sounds/sorry-mate.mp3');
-        setTimeout(() => audio2.play().catch(e => console.error("Audio play failed", e)), 20);
+        if (isCorrect) {
+          const audio = new Audio('sounds/good-boy.mp3');
+          audio.play().catch(e => console.error("Audio play failed", e));
+        } else {
+          const audio = new Audio('sounds/sorry-mate.mp3');
+          audio.play().catch(e => console.error("Audio play failed", e));
+          // Play a second instance to "double" the volume
+          const audio2 = new Audio('sounds/sorry-mate.mp3');
+          setTimeout(() => audio2.play().catch(e => console.error("Audio play failed", e)), 20);
+        }
       }
     }
 
@@ -378,8 +381,17 @@ const App: React.FC = () => {
                 {gameState === 'special' ? 'Letzte Hürde!' : (isAuQuestion ? 'Aussie Bonus!' : 'Tour-Fragen')}
               </span>
             </div>
-            <div className={`px-3 py-1 rounded-full font-bold text-sm ${gameState === 'special' ? 'bg-yellow-50 text-yellow-600' : (isAuQuestion ? 'bg-blue-50 text-blue-600' : 'bg-red-50 text-red-600')}`}>
-              {gameState === 'special' ? 'Ziel erreicht!' : (isAuQuestion ? 'G\'day Doctor T!' : 'Doctor T\'s Tour')}
+            <div className="flex items-center gap-3">
+              <button 
+                onClick={() => setIsMuted(!isMuted)}
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500"
+                title={isMuted ? "Stummschaltung aufheben" : "Stummschalten"}
+              >
+                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              </button>
+              <div className={`px-3 py-1 rounded-full font-bold text-sm ${gameState === 'special' ? 'bg-yellow-50 text-yellow-600' : (isAuQuestion ? 'bg-blue-50 text-blue-600' : 'bg-red-50 text-red-600')}`}>
+                {gameState === 'special' ? 'Ziel erreicht!' : (isAuQuestion ? 'G\'day Doctor T!' : 'Doctor T\'s Tour')}
+              </div>
             </div>
           </div>
 
