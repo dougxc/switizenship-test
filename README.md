@@ -24,7 +24,7 @@ Doctor T's goal is to complete the **Nationalpark-Bike-Tour (Route 444)**, start
 - **Deployment:** GitHub Pages via GitHub Actions (Node.js 24 optimized)
 
 ## 🚀 How to Play
-The game is hosted live at: **[https://dougxc.github.io/switizenship-test/](https://dougxc.github.io/switizenship-test/)**
+The game is hosted live at: **[https://dougxc.github.io/drt/](https://dougxc.github.io/drt/)**
 
 ### Local Development
 If you want to run the project locally:
