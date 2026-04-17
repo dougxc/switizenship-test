@@ -5,7 +5,8 @@
         "de": "Warum ist es in der Schweiz illegal, nur ein einzelnes Meerschweinchen zu halten?",
         "fr": "Pourquoi est-il illégal en Suisse de n'avoir qu'un seul cochon d'Inde ?",
         "it": "Perché in Svizzera è illegale tenere un solo porcellino d'India?",
-        "rm": "Pertge èsi illegal en Svizra da tegnair be in sulet portget d'India?"
+        "rm": "Pertge èsi illegal en Svizra da tegnair be in sulet portget d'India?",
+        "en": "Why is it illegal in Switzerland to keep only a single guinea pig?"
       },
       "options": {
         "de": [
@@ -27,6 +28,11 @@
           "Pertge ch'els morderan uschiglio ils cabels en chasa sulets",
           "Pertge ch'els èn animals socials e l'allevament singul vala sco crualtad envers ils animals",
           "Pertge che la taglia per in animal è pli chara che per dus"
+        ],
+        "en": [
+          "Because they would otherwise eat the house cables alone",
+          "Because they are social animals and keeping them alone is considered animal cruelty",
+          "Because the tax for one animal is more expensive than for two"
         ]
       },
       "answer": 1
@@ -36,7 +42,8 @@
         "de": "Was darf man in der Schweiz an einem Sonntag gesetzlich normalerweise NICHT tun?",
         "fr": "Qu'est-il normalement INTERDIT de faire légalement en Suisse un dimanche ?",
         "it": "Cosa NON è normalmente permesso fare legalmente in Svizzera di domenica?",
-        "rm": "Tge n'astgan ins normalmain betg far tenor la lescha in dumengia en Svizra?"
+        "rm": "Tge n'astgan ins normalmain betg far tenor la lescha in dumengia en Svizra?",
+        "en": "What are you normally NOT allowed to do legally in Switzerland on a Sunday?"
       },
       "options": {
         "de": [
@@ -58,6 +65,11 @@
           "Segar il fegliom u deponer vaider",
           "Mangiar tschigulatta",
           "Purtar chalzers da viandar"
+        ],
+        "en": [
+          "Mow the lawn or dispose of glass",
+          "Eat chocolate",
+          "Wear hiking boots"
         ]
       },
       "answer": 0
@@ -67,7 +79,8 @@
         "de": "Was passiert laut Tradition, wenn man sein Brot im Fondue-Topf verliert?",
         "fr": "Selon la tradition, que se passe-t-il si l'on perd son morceau de pain dans le caquelon à fondue ?",
         "it": "Secondo la tradizione, cosa succede se si perde il pane nel pentolino della fonduta?",
-        "rm": "Tge capita tenor la tradiziun, sche ins perda ses paun en il chazzol da fondue?"
+        "rm": "Tge capita tenor la tradiziun, sche ins perda ses paun en il chazzol da fondue?",
+        "en": "According to tradition, what happens if you lose your bread in the fondue pot?"
       },
       "options": {
         "de": [
@@ -89,6 +102,11 @@
           "Ins sto far la vaschella",
           "Ins sto pajar ina runda bavrondas (u bitschar ad insatgi)",
           "Ins n'astga mangiar nagin chaschiel pli per il rest da la saira"
+        ],
+        "en": [
+          "You have to do the dishes",
+          "You have to pay a round of drinks (or kiss someone)",
+          "You are not allowed to eat any more cheese for the rest of the evening"
         ]
       },
       "answer": 1
@@ -98,7 +116,8 @@
         "de": "Was ist das Besondere an den Schweizer Atombunkern?",
         "fr": "Quelle est la particularité des abris atomiques suisses ?",
         "it": "Cosa c'è di speciale nei rifugi antiatomici svizzeri?",
-        "rm": "Tge è il spezial dals buncars atomics svizzers?"
+        "rm": "Tge è il spezial dals buncars atomics svizzers?",
+        "en": "What is special about Swiss nuclear bunkers?"
       },
       "options": {
         "de": [
@@ -120,6 +139,11 @@
           "Els èn tuts equipads cun WLAN gratuit",
           "Intgins èn camuflads sco charmants chalets svizzers",
           "Els vegnan utilisads la stad sco deponia da chaschiel"
+        ],
+        "en": [
+          "They are all equipped with free Wi-Fi",
+          "Some are disguised as charming Swiss chalets",
+          "They are used as cheese storage in summer"
         ]
       },
       "answer": 1
@@ -129,7 +153,8 @@
         "de": "Warum wurde eine Frau in der Schweiz die Einbürgerung verweigert, obwohl sie ihr ganzes Leben dort gelebt hatte?",
         "fr": "Pourquoi la naturalisation a-t-elle été refusée à une femme en Suisse, alors qu'elle y avait vécu toute sa vie ?",
         "it": "Perché a una donna in Svizzera è stata negata la cittadinanza, anche se ci aveva vissuto tutta la vita?",
-        "rm": "Pertge è la natiralisaziun vegnida refusada ad ina dunna en Svizra, malgrà ch'ella aveva vivì là sia entira vita?"
+        "rm": "Pertge è la natiralisaziun vegnida refusada ad ina dunna en Svizra, malgrà ch'ella aveva vivì là sia entira vita?",
+        "en": "Why was a woman in Switzerland denied citizenship even though she had lived there her whole life?"
       },
       "options": {
         "de": [
@@ -151,6 +176,11 @@
           "Pertge ch'ella na mangiava betg gugent chaschiel",
           "Pertge ch'ella ha concedì ch'ella na giaja betg gugent a viandar",
           "Pertge ch'ella na saveva betg jodelar l'imna naziunala"
+        ],
+        "en": [
+          "Because she didn't like cheese",
+          "Because she admitted she didn't like hiking",
+          "Because she couldn't yodel the national anthem"
         ]
       },
       "answer": 1
@@ -160,7 +190,8 @@
         "de": "Was bekommt der Gewinner des nationalen Schwingfestes (Schwingerkönig) als traditionellen Hauptpreis?",
         "fr": "Quel est le prix principal traditionnel pour le vainqueur de la Fête fédérale de lutte (roi de la lutte) ?",
         "it": "Qual è il premio principale tradizionale per il vincitore della festa nazionale di lotta svizzera (re della lotta)?",
-        "rm": "Tge survegn il victur da la Festa federala da lutga (retg da la lutga) sco premi principal tradiziunal?"
+        "rm": "Tge survegn il victur da la Festa federala da lutga (retg da la lutga) sco premi principal tradiziunal?",
+        "en": "What does the winner of the national Schwingen festival (Schwingerkönig) receive as a traditional grand prize?"
       },
       "options": {
         "de": [
@@ -182,6 +213,11 @@
           "In chaschiel d'aur",
           "In taur viv (Muni)",
           "In abonnament per vita duranta per la VFS"
+        ],
+        "en": [
+          "A golden wheel of cheese",
+          "A live bull (Muni)",
+          "A lifetime SBB pass"
         ]
       },
       "answer": 1
@@ -191,7 +227,8 @@
         "de": "In vielen älteren Schweizer Miethäusern gibt es eine inoffizielle Regel für die Zeit nach 22:00 Uhr. Welche?",
         "fr": "Dans de nombreux anciens immeubles suisses, il existe une règle non officielle pour après 22h00. Laquelle ?",
         "it": "In molti vecchi condomini svizzeri esiste una regola non ufficiale per il periodo dopo le 22:00. Quale?",
-        "rm": "En bleras chasas d'abitar svizras pli veglias datti ina regula inuffiziala per il temp suenter las 22:00. Quala?"
+        "rm": "En bleras chasas d'abitar svizras pli veglias datti ina regula inuffiziala per il temp suenter las 22:00. Quala?",
+        "en": "In many older Swiss apartment buildings, there is an unofficial rule for the time after 10:00 PM. Which one?"
       },
       "options": {
         "de": [
@@ -213,6 +250,11 @@
           "Ins na dastga betg pli rir dad aut",
           "Ins na duess betg pli trair l'aua u far duscha",
           "Ins sto serrar tut las fanestras"
+        ],
+        "en": [
+          "You are no longer allowed to laugh out loud",
+          "You should no longer flush the toilet or take a shower",
+          "You must close all windows"
         ]
       },
       "answer": 1
@@ -222,7 +264,8 @@
         "de": "Welches Tier ist in der Schweiz gesetzlich geschützt, sodass man kein 'Trophäenfoto' damit machen darf, bevor man es tötet?",
         "fr": "Quel animal est protégé par la loi en Suisse, de sorte qu'on ne peut pas prendre de 'photo-trophée' avec lui avant de le tuer ?",
         "it": "Quale animale è protetto per legge in Svizzera, tanto che non è permesso scattare una 'foto trofeo' prima di ucciderlo?",
-        "rm": "Qual animal è protegì tras la lescha en Svizra, uschia ch'ins na dastga betg far ina 'fotografia da trofea' cun quel avant ch'ins al mazza?"
+        "rm": "Qual animal è protegì tras la lescha en Svizra, uschia ch'ins na dastga betg far ina 'fotografia da trofea' cun quel avant ch'ins al mazza?",
+        "en": "Which animal is legally protected in Switzerland so that you cannot take a 'trophy photo' with it before you kill it?"
       },
       "options": {
         "de": [
@@ -244,6 +287,11 @@
           "In muntanella",
           "In pesch (a Turitg)",
           "In capricorn"
+        ],
+        "en": [
+          "A marmot",
+          "A fish (in Zurich)",
+          "An ibex"
         ]
       },
       "answer": 1
@@ -253,7 +301,8 @@
         "de": "Woher kommt das berühmte Käsegericht Raclette ursprünglich?",
         "fr": "D'où vient originellement le célèbre plat de fromage, la raclette ?",
         "it": "Da dove proviene originariamente il famoso piatto a base di formaggio Raclette?",
-        "rm": "Nua è l'origin dal famus plat da chaschiel Raclette?"
+        "rm": "Nua è l'origin dal famus plat da chaschiel Raclette?",
+        "en": "Where does the famous cheese dish Raclette originally come from?"
       },
       "options": {
         "de": [
@@ -275,6 +324,11 @@
           "Dal chantun Vallais",
           "Dal chantun Appenzell",
           "Da la Frantscha"
+        ],
+        "en": [
+          "From the Canton of Valais",
+          "From the Canton of Appenzell",
+          "From France"
         ]
       },
       "answer": 0
@@ -284,7 +338,8 @@
         "de": "Was ist 'Hornussen'?",
         "fr": "Qu'est-ce que le 'Hornussen' ?",
         "it": "Cos'è l'Hornussen?",
-        "rm": "Tge è il 'Hornussen'?"
+        "rm": "Tge è il 'Hornussen'?",
+        "en": "What is 'Hornussen'?"
       },
       "options": {
         "de": [
@@ -306,6 +361,11 @@
           "Ina recepta tradiziunala per mel da vespuns",
           "In sport d'equipa svizzer (ina maschaida tranter golf e baseball)",
           "Il sunar uffizial dal cor alphorn d'enviern"
+        ],
+        "en": [
+          "A traditional recipe for hornet honey",
+          "A Swiss team sport (a mix of golf and baseball)",
+          "The official blowing of the alphorn in winter"
         ]
       },
       "answer": 1
@@ -315,7 +375,8 @@
         "de": "Wie viel Prozent der Schweizer Bevölkerung findet in Atombunkern Platz?",
         "fr": "Quel pourcentage de la population suisse peut trouver place dans des abris atomiques ?",
         "it": "Quale percentuale della popolazione svizzera può trovare posto nei rifugi antiatomici?",
-        "rm": "Quants pertschient da la populaziun svizra chatta plazza en buncars atomics?"
+        "rm": "Quants pertschient da la populaziun svizra chatta plazza en buncars atomics?",
+        "en": "What percentage of the Swiss population can fit in nuclear bunkers?"
       },
       "options": {
         "de": [
@@ -337,6 +398,11 @@
           "Radund 25%",
           "Precis 100%",
           "Be la regenza ed ils emploiads da banca"
+        ],
+        "en": [
+          "About 25%",
+          "Exactly 100%",
+          "Only the government and bank employees"
         ]
       },
       "answer": 1
@@ -346,7 +412,8 @@
         "de": "Warum ist das Waschen des Autos am Sonntag in der Schweiz oft problematisch?",
         "fr": "Pourquoi laver sa voiture le dimanche en Suisse est-il souvent problématique ?",
         "it": "Perché lavare l'auto di domenica in Svizzera è spesso problematico?",
-        "rm": "Pertge è il lavar l'auto la dumengia en Svizra savens problematic?"
+        "rm": "Pertge è il lavar l'auto la dumengia en Svizra savens problematic?",
+        "en": "Why is washing the car on Sunday often problematic in Switzerland?"
       },
       "options": {
         "de": [
@@ -368,6 +435,11 @@
           "Pervi da la prescripziun cunter canera (ruaus da dumengia)",
           "Pervi che l'aua è pli chara la dumengia",
           "Pervi ch'a quai vala sco portafortuna nauscha"
+        ],
+        "en": [
+          "Because of the noise protection ordinance (Sunday rest)",
+          "Because water is more expensive on Sunday",
+          "Because it is considered bad luck"
         ]
       },
       "answer": 0
@@ -377,7 +449,8 @@
         "de": "Welche Supermärkte gelten als 'typisch schweizerisch' (im Gegensatz zu Aldi oder Lidl)?",
         "fr": "Quels supermarchés sont considérés comme 'typiquement suisses' (contrairement à Aldi ou Lidl) ?",
         "it": "Quali supermercati sono considerati 'tipicamente svizzeri' (a differenza di Aldi o Lidl)?",
-        "rm": "Quals supermarts valan sco 'tipicamain svizzers' (en opposiziun ad Aldi u Lidl)?"
+        "rm": "Quals supermarts valan sco 'tipicamain svizzers' (en opposiziun ad Aldi u Lidl)?",
+        "en": "Which supermarkets are considered 'typically Swiss' (unlike Aldi or Lidl)?"
       },
       "options": {
         "de": [
@@ -399,6 +472,11 @@
           "Walmart e Target",
           "Migros e Coop",
           "Tesco e Carrefour"
+        ],
+        "en": [
+          "Walmart and Target",
+          "Migros and Coop",
+          "Tesco and Carrefour"
         ]
       },
       "answer": 1
@@ -408,7 +486,8 @@
         "de": "In welchem Kanton wachsen Palmen ganz natürlich, obwohl man in der Nähe Gletscher sehen kann?",
         "fr": "Dans quel canton les palmiers poussent-ils naturellement, bien que l'on puisse voir des glaciers à proximité ?",
         "it": "In quale cantone le palme crescono naturalmente, nonostante si possano vedere i ghiacciai nelle vicinanze?",
-        "rm": "En qual chantun creschan palmas natiralmain, malgrà ch'ins po vesair glatschers en la vischinanza?"
+        "rm": "En qual chantun creschan palmas natiralmain, malgrà ch'ins po vesair glatschers en la vischinanza?",
+        "en": "In which canton do palm trees grow naturally, even though you can see glaciers nearby?"
       },
       "options": {
         "de": [
@@ -430,6 +509,11 @@
           "Chantun Berna",
           "Chantun Tessin",
           "Chantun Grischun"
+        ],
+        "en": [
+          "Canton of Bern",
+          "Canton of Ticino",
+          "Canton of Graubünden"
         ]
       },
       "answer": 1
@@ -439,7 +523,8 @@
         "de": "Was darf man am Sonntag in der Schweiz NICHT im Freien aufhängen?",
         "fr": "Qu'est-il INTERDIT de suspendre à l'extérieur le dimanche en Suisse ?",
         "it": "Cosa NON è permesso appendere all'aperto la domenica in Svizzera?",
-        "rm": "Tge n'astgan ins betg pender or dador la dumengia en Svizra?"
+        "rm": "Tge n'astgan ins betg pender or dador la dumengia en Svizra?",
+        "en": "What are you NOT allowed to hang outdoors on Sunday in Switzerland?"
       },
       "options": {
         "de": [
@@ -461,6 +546,11 @@
           "La bandiera svizra",
           "Sia vestgadira per sientar",
           "In placat per ina festa"
+        ],
+        "en": [
+          "The Swiss flag",
+          "Your laundry to dry",
+          "A poster for a party"
         ]
       },
       "answer": 1
@@ -470,7 +560,8 @@
         "de": "Wie nennt man den fiktiven Bären, mit dem Schweizer gerne Touristen erschrecken?",
         "fr": "Comment appelle-t-on l'animal fictif avec lequel les Suisses aiment effrayer les touristes ?",
         "it": "Come si chiama l'animale fittizio con cui gli svizzeri amano spaventare i turisti?",
-        "rm": "Co numnan ins l'animal fictiv cun il qual ils Svizzers spaventun gugent ils turists?"
+        "rm": "Co numnan ins l'animal fictiv cun il qual ils Svizzers spaventun gugent ils turists?",
+        "en": "What do you call the fictional bear that Swiss people like to scare tourists with?"
       },
       "options": {
         "de": [
@@ -492,6 +583,11 @@
           "Il Wolpertinger",
           "Il Drop Bear (originalmain da l'Australia, ma il princip quinta)",
           "Atgnamain datti en Svizra il 'Dahu', in animal cun chommas da differenta lunghezza"
+        ],
+        "en": [
+          "The Wolpertinger",
+          "The Drop Bear (originally from Australia, but the principle counts)",
+          "Actually, there is the 'Dahu' in Switzerland, an animal with legs of different lengths"
         ]
       },
       "answer": 2
@@ -501,7 +597,8 @@
         "de": "Warum dürfen Männer in manchen Mietverträgen nach 22:00 Uhr nicht mehr im Stehen urinieren?",
         "fr": "Pourquoi est-il interdit aux hommes d'uriner debout après 22h00 dans certains baux à loyer ?",
         "it": "Perché in alcuni contratti di affitto agli uomini non è permesso urinare in piedi dopo le 22:00?",
-        "rm": "Pertge na dastgan ils umens betg pli urinar en pe suenter las 22:00 en intgins contracts da fittanza?"
+        "rm": "Pertge na dastgan ils umens betg pli urinar en pe suenter las 22:00 en intgins contracts da fittanza?",
+        "en": "Why are men in some rental agreements no longer allowed to urinate while standing after 10:00 PM?"
       },
       "options": {
         "de": [
@@ -523,6 +620,11 @@
           "Pervi dal privel da flatgs",
           "Pervi da la disturbia da canera tras il pitgalar",
           "I sa tracta d'ina veglia usit religius"
+        ],
+        "en": [
+          "Because of the danger of stains",
+          "Because of the noise pollution from the splashing",
+          "It is an old religious custom"
         ]
       },
       "answer": 1
@@ -532,7 +634,8 @@
         "de": "Was ist die 'Bise'?",
         "fr": "Qu'est-ce que la 'Bise' ?",
         "it": "Cos'è la 'Bise'?",
-        "rm": "Tge è la 'Bisa'?"
+        "rm": "Tge è la 'Bisa'?",
+        "en": "What is the 'Bise'?"
       },
       "options": {
         "de": [
@@ -554,6 +657,11 @@
           "In pitschen bitsch per la salutaziun",
           "In vent dal nordost fraid e sitg",
           "In dultscharia speziala da Lucerna"
+        ],
+        "en": [
+          "A small kiss for greeting",
+          "A cold, dry northeast wind",
+          "A special pastry from Lucerne"
         ]
       },
       "answer": 1
@@ -563,7 +671,8 @@
         "de": "Was passiert, wenn man in der Schweiz am Sonntag sein Altglas zum Container bringt?",
         "fr": "Que se passe-t-il si l'on apporte son verre usagé au conteneur le dimanche en Suisse ?",
         "it": "Cosa succede se si porta il vetro usato al cassonetto la domenica in Svizzera?",
-        "rm": "Tge capita, sche ins porta ses vaider vegl al container la dumengia en Svizra?"
+        "rm": "Tge capita, sche ins porta ses vaider vegl al container la dumengia en Svizra?",
+        "en": "What happens if you take your old glass to the container on Sunday in Switzerland?"
       },
       "options": {
         "de": [
@@ -585,6 +694,11 @@
           "Ins survegn in engraziament da la vischnanca",
           "Ins risctga ina multa pervi da disturbia da canera",
           "Il container è serrà automaticamain la dumengia"
+        ],
+        "en": [
+          "You get a thank you from the community",
+          "You risk a fine for noise pollution",
+          "The container is automatically locked on Sunday"
         ]
       },
       "answer": 1
@@ -594,7 +708,8 @@
         "de": "Wer ist der 'König' der Schweiz?",
         "fr": "Qui est le 'roi' de la Suisse ?",
         "it": "Chi è il 're' della Svizzera?",
-        "rm": "Tgi è il 'retg' da la Svizra?"
+        "rm": "Tgi è il 'retg' da la Svizra?",
+        "en": "Who is the 'King' of Switzerland?"
       },
       "options": {
         "de": [
@@ -616,6 +731,11 @@
           "Roger Federer",
           "I n'existent nagins (ora dal retg da la lutga)",
           "Il president federal en uffizi"
+        ],
+        "en": [
+          "Roger Federer",
+          "There is none (except for the Schwingen king)",
+          "The acting Federal President"
         ]
       },
       "answer": 1

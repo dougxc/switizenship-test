@@ -66,7 +66,7 @@ const waterIcon = new L.DivIcon({
   iconAnchor: [16, 16],
 });
 
-type Language = 'de' | 'fr' | 'it' | 'rm';
+type Language = 'de' | 'fr' | 'it' | 'rm' | 'en';
 
 const uiTranslations: Record<Language, any> = {
   de: {
@@ -188,7 +188,43 @@ const uiTranslations: Record<Language, any> = {
     bonus: "Crikey! +2 chomps! 🇦🇺🚀",
     back: "Ohi! Anavos... ↩️",
     hoppla: "Hoppla! ❌"
+  },
+  en: {
+    startTitle: "Hi Doctor T!",
+    startCongrat: "Happy 60th Birthday!",
+    startDesc: "Are you ready for your National Park tour? Prove your Swiss knowledge (and a bit of Aussie wisdom) to reach the goal!",
+    startButton: "Start Tour",
+    finishedTitle: "Congratulations, Doctor T!",
+    finishedDesc: "You've completed the tour and are a true connoisseur of Switzerland (and Australia)!",
+    questionsNeeded: "Questions Needed",
+    playAgain: "Play Again",
+    giftDesc: "\"Your gift awaits: A bike tour around the Swiss National Park!\"",
+    tourQuestions: "Tour Questions",
+    aussieBonus: "Aussie Bonus!",
+    lastHurdle: "Last Hurdle!",
+    unmute: "Unmute",
+    mute: "Mute",
+    goalReached: "Goal Reached!",
+    gday: "G'day Doctor T!",
+    tourTitle: "Doctor T's Tour",
+    specialQuestion: "Have you already given Doug a date for the bike tour?",
+    specialOptions: ["No, I forgot", "No, it's a very complex decision - I need more time", "No, Doug should choose a random date"],
+    momentMal: "Wait a minute...",
+    wrongAnswerBack: "Wrong answer! You have to go back to the start and think about the date again! 😂",
+    currentLocation: "Current Location",
+    progress: "Progress",
+    questions: "Questions",
+    correct: "Correct! ✅",
+    bonus: "Crikey! +2 Fields! 🇦🇺🚀",
+    back: "Oh no! Back... ↩️",
+    hoppla: "Oops! ❌"
   }
+};
+
+const getBrowserLanguage = (): Language => {
+  const browserLang = navigator.language.split('-')[0];
+  const supportedLangs: Language[] = ['de', 'fr', 'it', 'rm', 'en'];
+  return supportedLangs.includes(browserLang as Language) ? (browserLang as Language) : 'de';
 };
 
 // Animated Marker Component that also scrolls the map
@@ -235,7 +271,7 @@ const locationImages: Record<string, string> = {
 };
 
 const App: React.FC = () => {
-  const [language, setLanguage] = useState<Language>('de');
+  const [language, setLanguage] = useState<Language>(getBrowserLanguage);
   const [gameState, setGameState] = useState<'start' | 'playing' | 'special' | 'moving_back' | 'finished'>('start');
   const [shuffledSwiss, setShuffledSwiss] = useState(() => shuffleArray(data.questions));
   const [shuffledAu, setShuffledAu] = useState(() => shuffleArray(auData.questions));
@@ -443,7 +479,7 @@ const App: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-red-500 to-red-700">
         <div className="swiss-card max-w-lg w-full p-8 text-center space-y-6">
           <div className="absolute top-4 right-4 flex bg-white/20 rounded-full p-1">
-            {(['de', 'fr', 'it', 'rm'] as const).map(l => (
+            {(['de', 'fr', 'it', 'rm', 'en'] as const).map(l => (
               <button
                 key={l}
                 onClick={() => setLanguage(l)}
@@ -536,7 +572,7 @@ const App: React.FC = () => {
                 {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
               </button>
               <div className="flex bg-gray-100 rounded-full p-1">
-                {(['de', 'fr', 'it', 'rm'] as const).map(l => (
+                {(['de', 'fr', 'it', 'rm', 'en'] as const).map(l => (
                   <button
                     key={l}
                     onClick={() => setLanguage(l)}
